@@ -1,3 +1,4 @@
 *.pyc
 *.pyo
 **/config.local.py
+**/nbproject/private
