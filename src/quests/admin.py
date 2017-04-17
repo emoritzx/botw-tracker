@@ -5,6 +5,7 @@ from quests.models import QuestEntry
 
 class QuestInline(admin.StackedInline):
     model = QuestEntry
+    verbose_name_plural = "Quest Entries"
 
 class UserAdmin(BaseUserAdmin):
     inlines = (QuestInline,)

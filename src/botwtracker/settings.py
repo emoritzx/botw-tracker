@@ -15,7 +15,7 @@ from botwtracker.config_local import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+DATA_DIR = os.path.join(BASE_DIR, '..', 'data')
 
 # Application definition
 
@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'botwtracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '..', 'data', 'sqlite3.db'),
+        'NAME': os.path.join(DATA_DIR, 'sqlite3.db'),
     }
 }
 
