@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if quest_list %}
+    <ul>
+    {% for quest in quest_list %}
+        <li>{{ quest.quest_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No quests are available.</p>
+{% endif %}
+{% endblock content %}

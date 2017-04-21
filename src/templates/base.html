@@ -1,0 +1,17 @@
+{% load static %}<!DOCTYPE html>
+<html>
+    <head>
+        <title>BOTW Tracker</title>
+        <style type="text/css">
+            body {
+                background-image: url({% static "images/background.jpg" %});
+                background-attachment: fixed;
+                background-position: center;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        {% block content %}{% endblock content %}
+    </body>
+</html>
