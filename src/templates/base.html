@@ -2,16 +2,11 @@
 <html>
     <head>
         <title>BOTW Tracker</title>
-        <style type="text/css">
-            body {
-                background-image: url({% static "images/background.jpg" %});
-                background-attachment: fixed;
-                background-position: center;
-                background-size: cover;
-            }
-        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="{% static "base/css/base.css" %}">
     </head>
     <body>
-        {% block content %}{% endblock content %}
+        <div id="content">{% block content %}{% endblock content %}</div>
     </body>
 </html>

@@ -5,6 +5,7 @@
         <data xmlns="http://nbpython.dev.java.net/ns/php-project/1">
             <name>BOTW Tracker</name>
             <sources>
+                <root id="src.static.dir"/>
                 <root id="src.dir"/>
             </sources>
             <tests/>
