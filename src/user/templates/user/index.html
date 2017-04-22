@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% block title %}User Listing{% endblock title %}
 {% block content %}
 {% if user_list %}
     <ul>
     {% for profile in user_list %}
-        <li>{{ profile.user.username }}</li>
+        <li><a href="{% url 'app-views-user' profile.user.username %}">{{ profile.user.username }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

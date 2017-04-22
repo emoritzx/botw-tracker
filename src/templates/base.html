@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="{% static "base/css/base.css" %}">
     </head>
     <body>
-        <section id="content">{% block content %}{% endblock content %}</section>
+        <section id="content">
+            <h1>{% block title %}Page Heading{% endblock title %}</h1>
+            {% block content %}{% endblock content %}
+        </section>
     </body>
 </html>

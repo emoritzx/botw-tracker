@@ -9,6 +9,7 @@ body {
 
 section {
     text-align: left;
+    color: white;
 }
 
 @media screen and (min-width: 1024px) {
