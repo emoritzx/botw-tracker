@@ -13,7 +13,6 @@ from quests.models import Quest
 
 # run loaders
 if __name__ == "__main__":
-    print("Hello World")
     for quest_type in Quest.QUEST_TYPES:
         with open(os.path.join(DATA_DIR, 'quests', quest_type[0] + ".dat")) as qfile:
             QuestLoader.load(qfile, quest_type[0])
