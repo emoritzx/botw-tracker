@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{{ object.user.username }}
+{% if object.questentry %}
+    {% for entry in object.questentry %}
+        {{ entry }}
+    {% endfor %}
+{% else %}
+    <p>No quests logged.</p>
+{% endif %}
+{% endblock content %}

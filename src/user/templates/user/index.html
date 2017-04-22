@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user_list %}
+    <ul>
+    {% for profile in user_list %}
+        <li>{{ profile.user.username }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users found.</p>
+{% endif %}
+{% endblock content %}

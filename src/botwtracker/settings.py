@@ -21,6 +21,7 @@ DATA_DIR = os.path.join(BASE_DIR, '..', 'data')
 
 INSTALLED_APPS = [
     'quests.apps.QuestsConfig',
+    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
