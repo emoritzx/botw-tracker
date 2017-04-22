@@ -3,4 +3,18 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    margin: 0;
+    text-align: center;
+}
+
+section {
+    text-align: left;
+}
+
+@media screen and (min-width: 1024px) {
+
+    section {
+        margin: 0 auto;
+        width: 1024px;
+    }
 }
