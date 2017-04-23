@@ -1,0 +1,38 @@
+#quests-nav {
+    display: inline-block;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    border: 1px solid white;
+}
+
+#quests-nav > li {
+    list-style: none;
+    margin: 0;
+    padding: 0.5em;
+    display: inline-block;
+    border: 1px solid white;
+}
+
+#quests-nav > li:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+#quests-nav > li:hover > a {
+    color: #00008B;
+}
+
+#quests-nav > li > a {
+    margin: 0;
+    color: white;
+    text-decoration: none;
+}
+
+[data-quests-active=True] {
+    display: block;
+}
+
+[data-quests-active=False] {
+    display: none;
+}

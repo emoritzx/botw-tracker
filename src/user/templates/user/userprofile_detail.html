@@ -1,16 +1,34 @@
 {% extends "base.html" %}
+{% load static %}
 {% load questentry_extras %}
-{% block title %}{{ object.user.username }}{% endblock title %}
+
+{% block title %}{{ object.user.username }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
+<script src="{% static 'lib/require.js' %}" data-main="{% static 'user/js/profile-main.js' %}"></script>
+{% endblock %}
+
 {% block content %}
+
+<ul id="quests-nav">
+{% for quest_type, quest_description in view.get_quest_types %}<li onclick="location.hash='{{ quest_type }}'"><a href="#{{ quest_type }}">{{ quest_description }}</a></li>{% endfor %}
+</ul>
+
+<div id="quests-container">
 {% for quest_type, quest_description in view.get_quest_types %}
-    <h2>{{ quest_description }}</h2>
-    <h3>Active</h3>
-    {% for entry in object.questentry_set|in_category:quest_type|completion_status:False %}
-        {% include 'user/questentry_detail.html' %}
-    {% endfor %}
-    <h3>Completed</h3>
-    {% for entry in object.questentry_set|in_category:quest_type|completion_status:True %}
-        {% include 'user/questentry_detail.html' %}
-    {% endfor %}
+    <div id="{{ quest_type }}" data-quests-active="{{ forloop.first }}">
+        <h2>{{ quest_description }}</h2>
+        <h3>Active</h3>
+        {% for entry in object.questentry_set|in_category:quest_type|completion_status:False %}
+            {% include 'user/questentry_detail.html' %}
+        {% endfor %}
+        <h3>Completed</h3>
+        {% for entry in object.questentry_set|in_category:quest_type|completion_status:True %}
+            {% include 'user/questentry_detail.html' %}
+        {% endfor %}
+    </div>
 {% endfor %}
-{% endblock content %}
+</div>
+
+{% endblock %}
