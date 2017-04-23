@@ -11,14 +11,6 @@ Description
 This Django-based web application is a simple progress tracker for various aspects of the video game
 The Legend of Zelda: Breath of the Wild<sup>TM</sup>.
 
-License
--------
-
-Copyright (c) 2017, Evan Moritz.
-
-botw-tracker is an open source software project released under the MIT License.  
-See the accompanying LICENSE file for terms.
-
 Installation
 ------------
 
@@ -48,6 +40,27 @@ Installation
 6. Deploy application on development server
 
    Django applications can be deployed on any server with Python/WSGI support.
+
+License
+-------
+
+Copyright (c) 2017, Evan Moritz.
+
+botw-tracker is an open source software project released under the MIT License.  
+See the accompanying LICENSE file for terms.
+
+Open Source Software
+--------------------
+
+This project includes the following open source libraries:
+
+  - jQuery 3.2.1
+    Copyright jQuery Foundation.
+    Released under MIT license, https://jquery.org/license/
+
+  - RequireJS 2.3.3
+    Copyright jQuery Foundation and other contributors.
+    Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
 
 References
 ----------
