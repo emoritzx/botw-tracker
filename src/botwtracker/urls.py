@@ -13,7 +13,7 @@ def index(request):
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^admin/', admin.site.urls),
     url(r'^quests/', include('quests.urls')),
     url(r'^user/', include('user.urls')),
-    url(r'^admin/', admin.site.urls),
 ]
