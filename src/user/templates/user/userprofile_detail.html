@@ -1,11 +1,16 @@
 {% extends "base.html" %}
+{% load questentry_extras %}
 {% block title %}{{ object.user.username }}{% endblock title %}
 {% block content %}
-{% if object.questentry_set %}
-    {% for entry in object.questentry_set.all %}
+{% for quest_type, quest_description in view.get_quest_types %}
+    <h2>{{ quest_description }}</h2>
+    <h3>Active</h3>
+    {% for entry in object.questentry_set|in_category:quest_type|completion_status:False %}
         {% include 'user/questentry_detail.html' %}
     {% endfor %}
-{% else %}
-    <p>No quests logged.</p>
-{% endif %}
+    <h3>Completed</h3>
+    {% for entry in object.questentry_set|in_category:quest_type|completion_status:True %}
+        {% include 'user/questentry_detail.html' %}
+    {% endfor %}
+{% endfor %}
 {% endblock content %}

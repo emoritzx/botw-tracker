@@ -14,6 +14,9 @@ class QuestEntry(models.Model):
     discovery_date = models.DateTimeField(auto_now_add=True)
     completion_date = models.DateTimeField(null=True)
 
+    def completed(self):
+        return self.completion_date != None
+
 def __create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
