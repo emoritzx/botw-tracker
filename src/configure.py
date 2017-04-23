@@ -57,6 +57,7 @@ def __prompt_user_settings(settings):
     return settings
 
 def __prompt_user_default(settings, key):
+    """Default prompt"""
     value = input("%s [%s]: " % (key, settings[key])).strip()
     if value != '':
         settings[key] = value
