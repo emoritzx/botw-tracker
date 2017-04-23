@@ -1,6 +1,6 @@
 {% extends "base.html" %}
+{% block title %}{{ object.user.username }}{% endblock title %}
 {% block content %}
-{{ object.user.username }}
 {% if object.questentry %}
     {% for entry in object.questentry %}
         {{ entry }}
