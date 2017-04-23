@@ -22,32 +22,32 @@ See the accompanying LICENSE file for terms.
 Installation
 ------------
 
-  1. Make sure the following software is installed on the target machine:
+1. Make sure the following software is installed on the target machine:
 
-    - Python 3
-    - Django
-    - (optional) sqlite3
+   - Python 3
+   - Django
+   - (optional) sqlite3
 
-  2. Download the project from GitHub.
+2. Download the project from GitHub.
 
-  3. (optional) Create a database instance of your choice and update database settings in `src/botwtracker/settings.py`.
+3. (optional) Create a database instance of your choice and update database settings in `src/botwtracker/settings.py`.
 
-     By default, the project will use a `sqlite3` instance in `data/sqlite3.db`.
+   By default, the project will use a sqlite3 instance in `data/sqlite3.db`.
 
-  4. After cloning the project, run the configuration command:
+4. After cloning the project, run the configuration command:
 
-        $ cd src
-        $ python configure.py
+       $ cd src
+       $ python configure.py
 
-     The configuration script will generate localized settings, prompting when necessary.
+   The configuration script will generate localized settings, prompting when necessary.
 
-  5. (optional) Run the server locally for testing:
+5. (optional) Run the server locally for testing:
 
-        $ python manage.py runserver
+       $ python manage.py runserver
 
-  6. Deploy application on development server
+6. Deploy application on development server
 
-     Django applications can be deployed on any server with Python/WSGI support.
+   Django applications can be deployed on any server with Python/WSGI support.
 
 References
 ----------
