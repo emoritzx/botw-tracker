@@ -82,7 +82,14 @@ def configure_quests():
 
 def configure_testuser():
     """Load example data into database"""
-    pass
+    from django.contrib.auth.models import User
+    user = User.objects.create_user(username='testuser', password='botw-tracker-testuser')
+    from quests.models import Quest
+    from user.models import QuestEntry
+    import datetime
+    quest=Quest.objects.all()[0]
+    print(quest)
+    QuestEntry(user=user.userprofile, quest=quest).save()
 
 # run configuration
 if __name__ == "__main__":

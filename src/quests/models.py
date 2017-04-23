@@ -16,3 +16,6 @@ class Quest(models.Model):
 
     quest_name = models.CharField(max_length=200, unique=True)
     quest_type = models.CharField(max_length=20, choices=QUEST_TYPES, default=STORY_TYPE)
+
+    def __str__(self):
+        return "%s: %s" % (self.get_quest_type_display(), self.quest_name)

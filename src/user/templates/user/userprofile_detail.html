@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block title %}{{ object.user.username }}{% endblock title %}
 {% block content %}
-{% if object.questentry %}
-    {% for entry in object.questentry %}
-        {{ entry }}
+{% if object.questentry_set %}
+    {% for entry in object.questentry_set.all %}
+        {% include 'user/questentry_detail.html' %}
     {% endfor %}
 {% else %}
     <p>No quests logged.</p>
