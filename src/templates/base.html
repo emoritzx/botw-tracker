@@ -8,6 +8,14 @@
         {% block head %}{% endblock %}
     </head>
     <body>
+        <section id="nav">
+            {% if user.is_authenticated %}
+                Welcome, {{ user.username }}!
+                <a href="{% url 'logout' %}?next={{ request.path }}">Log out</a>
+            {% else %}
+                <a href="{% url 'login' %}?next={{ request.path }}">Log in</a>
+            {% endif %}
+        </section>
         <section id="content">
             <h1>{% block title %}Page Heading{% endblock title %}</h1>
             {% block content %}{% endblock content %}
