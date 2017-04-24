@@ -4,6 +4,7 @@
     list-style: none;
     padding: 0;
     border: 1px solid white;
+    border-radius: 1em;
 }
 
 #quests-nav > li {
@@ -11,7 +12,14 @@
     margin: 0;
     padding: 0.5em;
     display: inline-block;
-    border: 1px solid white;
+}
+
+#quests-nav li:first-child {
+    border-radius: 1em 0 0 1em;
+}
+
+#quests-nav li:last-child {
+    border-radius: 0 1em 1em 0;
 }
 
 #quests-nav > li:hover {
