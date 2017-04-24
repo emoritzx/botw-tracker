@@ -15,5 +15,7 @@ requirejs(['jquery'], function($) {
     });
     if (location.hash) {
         hashchangeEvent.trigger('hashchange');
+    } else {
+        location.hash = $("#quests-container :first-child").attr('id');
     }
 });
