@@ -8,7 +8,7 @@ class Quest(models.Model):
     MEMORY_TYPE = "MEMORY"
     
     QUEST_TYPES = (
-        (STORY_TYPE, "Main Story Quest"),
+        (STORY_TYPE, "Main Story"),
         (SIDE_TYPE, "Side Quest"),
         (SHRINE_TYPE, "Shrine Quest"),
         (MEMORY_TYPE, "Memories")
