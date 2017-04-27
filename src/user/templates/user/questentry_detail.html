@@ -2,7 +2,7 @@
     <label>{{ entry.quest.quest_name }}</label>
     {% if user.is_authenticated and entry.user.id == user.id %}
         {% if not entry.completed %}
-            <a href="{% url 'app-views-user-update' user.pk %}?action=complete&entry={{ entry.id }}">Complete</a>
+            <a class="quest-command" href="{% url 'app-views-user-update' user.pk %}?action=complete&entry={{ entry.id }}">Complete</a>
         {% endif %}
     {% endif %}
 </div>

@@ -44,3 +44,17 @@
 [data-quests-active=False] {
     display: none;
 }
+
+.quest-command {
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 1em;
+    color: white;
+    text-decoration: none;
+    padding: 0 0.5em;
+}
+
+.quest-command:hover {
+    background-color: white;
+    color: #00008B;
+}
