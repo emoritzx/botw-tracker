@@ -21,6 +21,14 @@ class UserProfileView(DetailView):
     def get_quest_types(self):
         return Quest.QUEST_TYPES
 
+    def get_undiscovered_quests(self):
+        try:
+            user = User.objects.get(pk=self.kwargs['pk'])
+        except KeyError:
+            user = User.objects.get(username=self.kwargs['slug'])
+        quests = [entry.quest.id for entry in QuestEntry.objects.filter(user__user=user)]
+        return Quest.objects.exclude(id__in=quests)
+
 class UserProfileUpdate(LoginRequiredMixin, RedirectView):
 
     login_url = reverse_lazy('login')
