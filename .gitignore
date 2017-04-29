@@ -3,3 +3,4 @@
 **/config_local.py
 **/nbproject/private
 **/__pycache__
+*.db
