@@ -28,8 +28,8 @@
             {% include 'user/questentry_detail.html' %}
         {% endfor %}
         <h3>Undiscovered</h3>
-        <div id="quests-undiscovered-dropdown">Show quest list</div>
-        <div id="quests-undiscovered">
+        <div class="quests-undiscovered-dropdown" data-quest-type="{{ quest_type }}">Show quest list</div>
+        <div class="quests-undiscovered" data-quest-type="{{ quest_type }}">
             {% for quest in view.get_undiscovered_quests|in_category:quest_type %}
                 {% include 'user/quest_detail.html' %}
             {% endfor %}

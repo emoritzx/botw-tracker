@@ -13,9 +13,24 @@ requirejs(['jquery'], function($) {
         });
         $("#" + hash).attr(ATTRIBUTE, 'True');
     });
-    if (location.hash) {
-        hashchangeEvent.trigger('hashchange');
-    } else {
-        location.hash = $("#quests-container :first-child").attr('id');
-    }
+    $(document).ready(function() {
+        $(".quests-undiscovered-dropdown").each(function(index, el) {
+            var quest_type = $(el).attr('data-quest-type');
+            $(el).click(function() {
+                var block = $(".quests-undiscovered[data-quest-type=" + quest_type + "]");
+                if (block.css("display") === "block") {
+                    $(el).text("Show quest list");
+                    block.css("display", "none");
+                } else {
+                    $(el).text("Hide quest list");
+                    block.css("display", "block");
+                }
+            });
+        });
+        if (location.hash) {
+            hashchangeEvent.trigger('hashchange');
+        } else {
+            location.hash = $("#quests-container :first-child").attr('id');
+        }
+    });
 });
