@@ -41,11 +41,7 @@ class UserProfileUpdate(LoginRequiredMixin, RedirectView):
             raise SuspiciousOperation('No action provided')
         elif action == 'complete':
             entry = self.request.GET.get('entry')
-            if not entry:
-                raise SuspiciousOperation('No entry provided')
-            entry_obj = QuestEntry.objects.get(pk=entry)
-            if entry_obj.user.user.id != user.id:
-                raise SuspiciousOperation('Quest entry does not belong to user')
+            entry_obj = self.verify_entry(user, entry)
             entry_obj.completion_date = timezone.now()
             entry_obj.save(update_fields=['completion_date'])
         elif action == 'discover':
@@ -53,6 +49,18 @@ class UserProfileUpdate(LoginRequiredMixin, RedirectView):
             quest = Quest.objects.get(pk=id)
             profile = UserProfile.objects.get(user=user)
             QuestEntry.objects.create(user=profile, quest=quest)
+        elif action == 'remove':
+            entry = self.request.GET.get('entry')
+            entry_obj = self.verify_entry(user, entry)
+            entry_obj.delete()
         else:
             raise SuspiciousOperation('Unknown action: %s' % action)
         return super().get_redirect_url(*args, slug=user.username)
+
+    def verify_entry(self, user, entry):
+        if not entry:
+            raise SuspiciousOperation('No entry provided')
+        entry_obj = QuestEntry.objects.get(pk=entry)
+        if entry_obj.user.user.id != user.id:
+            raise SuspiciousOperation('Quest entry does not belong to user')
+        return entry_obj
