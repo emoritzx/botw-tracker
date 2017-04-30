@@ -37,10 +37,10 @@ class UserProfileUpdate(LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         user = User.objects.get(pk=kwargs['pk'])
         action = self.request.GET.get('action')
-        entry = self.request.GET.get('entry')
         if not action:
             raise SuspiciousOperation('No action provided')
-        if action == 'complete':
+        elif action == 'complete':
+            entry = self.request.GET.get('entry')
             if not entry:
                 raise SuspiciousOperation('No entry provided')
             entry_obj = QuestEntry.objects.get(pk=entry)
@@ -48,4 +48,9 @@ class UserProfileUpdate(LoginRequiredMixin, RedirectView):
                 raise SuspiciousOperation('Quest entry does not belong to user')
             entry_obj.completion_date = timezone.now()
             entry_obj.save(update_fields=['completion_date'])
+        elif action == 'discover':
+            id = self.request.GET.get('id')
+            quest = Quest.objects.get(pk=id)
+            profile = UserProfile.objects.get(user=user)
+            QuestEntry.objects.create(user=profile, quest=quest)
         return super().get_redirect_url(*args, slug=user.username)
