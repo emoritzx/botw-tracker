@@ -12,6 +12,11 @@ section {
     color: white;
 }
 
+h2 {
+    padding-bottom: 0.5em;
+    border-bottom: 1px dotted white;
+}
+
 #title {
     height: 4em;
 }
