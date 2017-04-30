@@ -12,6 +12,47 @@ section {
     color: white;
 }
 
+#title {
+    height: 4em;
+}
+
+#title h1 {
+    margin: 0;
+    font-size: 2em;
+    line-height: 2em;
+    height: 2em;
+    float: left;
+}
+
+#title > div {
+    margin-top: 1em;
+    float: right;
+    height: 2em;
+}
+
+#title:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+#nav > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#nav > ul > li {
+    display: inline-block;
+    border-radius: 1em;
+    border-width: 0;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: white;
+    padding: 0 0.5em;
+}
+
 @media screen and (min-width: 1024px) {
 
     section {
@@ -23,4 +64,8 @@ section {
 a {
     color: red;
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

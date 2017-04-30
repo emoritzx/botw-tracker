@@ -1,23 +1,47 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}{% comment %}
+
+botw-tracker base site template
+
+Copyright (c) 2017, Evan Moritz.
+
+botw-tracker is an open source software project released under the MIT License.
+See the accompanying LICENSE file for terms.
+
+{% endcomment%}<!DOCTYPE html>
 <html>
     <head>
         <title>BOTW Tracker</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Language" content="en_US">
         <link rel="stylesheet" href="{% static "base/css/base.css" %}">
         {% block head %}{% endblock %}
     </head>
     <body>
+        <section id="title">
+            <h1>botw-tracker</h1>
+            <div>
+                <div>The Legend of Zelda: Breath of the Wild&trade; Progress Tracker</div>
+                <div>Copyright &copy; 2017, Evan Moritz.</div>
+            </div>
+        </section>
         <section id="nav">
-            {% if user.is_authenticated %}
-                Welcome, {{ user.username }}!
-                <a href="{% url 'logout' %}?next={{ request.path }}">Log out</a>
-            {% else %}
-                <a href="{% url 'login' %}?next={{ request.path }}">Log in</a>
-            {% endif %}
+            <ul>
+                <li><a href="{% url 'index' %}">Main</a></li>
+                <li><a href="{% url 'app-views-user-index' %}">Users</a></li>
+                {% if user.is_authenticated %}
+                <li>Profile: <a href="{% url 'app-views-user' user.username %}">{{ user.username }}</a></li>
+                {% endif %}
+                <li id="login">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}?next={{ request.path }}">Log out</a>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={{ request.path }}">Log in</a>
+                    {% endif %}
+                </li>
+            </ul>
         </section>
         <section id="content">
-            <h1>{% block title %}Page Heading{% endblock title %}</h1>
             {% block content %}{% endblock content %}
         </section>
     </body>
