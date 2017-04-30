@@ -53,6 +53,11 @@ class UserProfileUpdate(LoginRequiredMixin, RedirectView):
             entry = self.request.GET.get('entry')
             entry_obj = self.verify_entry(user, entry)
             entry_obj.delete()
+        elif action == 'downgrade':
+            entry = self.request.GET.get('entry')
+            entry_obj = self.verify_entry(user, entry)
+            entry_obj.completion_date = None
+            entry_obj.save(update_fields=['completion_date'])
         else:
             raise SuspiciousOperation('Unknown action: %s' % action)
         return super().get_redirect_url(*args, slug=user.username)
