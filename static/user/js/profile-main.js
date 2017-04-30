@@ -19,10 +19,10 @@ requirejs(['jquery'], function($) {
             $(el).click(function() {
                 var block = $(".quests-undiscovered[data-quest-type=" + quest_type + "]");
                 if (block.css("display") === "block") {
-                    $(el).text("Show quest list");
+                    $(el).text("+");
                     block.css("display", "none");
                 } else {
-                    $(el).text("Hide quest list");
+                    $(el).text("-");
                     block.css("display", "block");
                 }
             });

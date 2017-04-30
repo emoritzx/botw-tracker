@@ -53,4 +53,6 @@ class UserProfileUpdate(LoginRequiredMixin, RedirectView):
             quest = Quest.objects.get(pk=id)
             profile = UserProfile.objects.get(user=user)
             QuestEntry.objects.create(user=profile, quest=quest)
+        else:
+            raise SuspiciousOperation('Unknown action: %s' % action)
         return super().get_redirect_url(*args, slug=user.username)

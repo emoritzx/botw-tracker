@@ -45,26 +45,62 @@
     display: none;
 }
 
-.quest-command {
+.quests-undiscovered-dropdown,
+.quest-command-positive,
+.quest-command-negative,
+.quest-command-neutral {
     display: inline-block;
-    border: 1px solid white;
+    border-width: 0;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
     border-radius: 1em;
-    color: white;
     text-decoration: none;
     padding: 0 0.5em;
+    vertical-align: middle;
+    width: 2em;
+    height: 1.2em;
+    line-height: 1.2em;
+    padding: 0;
+    text-align: center;
 }
 
-.quest-command:hover {
-    background-color: white;
-    color: #00008B;
+.quest-command-positive {
+    border-color: #0F0;
+    color: #0F0;
+}
+
+.quest-command-positive:hover {
+    background-color: #060;
+}
+
+.quest-command-negative {
+    border-color: #F00;
+    color: #F00;
+}
+
+.quest-command-negative:hover {
+    background-color: #600;
+}
+
+.quest-command-neutral {
+    border-color: #FF0;
+    color: #FF0;
+}
+
+.quest-command-neutral:hover {
+    background-color: #660;
 }
 
 .quests-undiscovered-dropdown {
-    color: red;
+    margin-top: 0;
+    border-color: #DDD;
+    color: #DDD;
 }
 
 .quests-undiscovered-dropdown:hover {
     cursor: pointer;
+    background-color: #666;
 }
 
 .quests-undiscovered {

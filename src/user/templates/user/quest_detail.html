@@ -1,6 +1,9 @@
 <div class="quest-entry">
-    <label>{{ quest.quest_name }}</label>
     {% if user.is_authenticated and user.id == user.id %}
-        <a class="quest-command" href="{% url 'app-views-user-update' user.pk %}?action=discover&id={{ quest.id }}">Discover</a>
+        <a
+            class="quest-command-neutral"
+            title="Discover"
+            href="{% url 'app-views-user-update' user.pk %}?action=discover&id={{ quest.id }}">&#x2299;</a>
     {% endif %}
+    <label>{{ quest.quest_name }}</label>
 </div>
