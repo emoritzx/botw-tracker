@@ -1,0 +1,9 @@
+{% if list %}
+    <ul>
+    {% for entry in list %}
+        <li>{{ entry.quest.quest_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    None
+{% endif %}

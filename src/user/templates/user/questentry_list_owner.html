@@ -1,0 +1,7 @@
+{% if list %}
+    {% for entry in list %}
+        {% include 'user/questentry_detail.html' %}
+    {% endfor %}
+{% else %}
+    None
+{% endif %}

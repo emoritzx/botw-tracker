@@ -18,6 +18,13 @@ class UserProfileView(DetailView):
     model = UserProfile
     slug_field = "user__username"
 
+    def get_user_id(self):
+        try:
+            user = User.objects.get(pk=self.kwargs['pk'])
+        except KeyError:
+            user = User.objects.get(username=self.kwargs['slug'])
+        return user.id
+
     def get_quest_types(self):
         return Quest.QUEST_TYPES
 

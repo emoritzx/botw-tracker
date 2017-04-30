@@ -1,21 +1,19 @@
 <div class="quest-entry">
-    {% if user.is_authenticated and entry.user.id == user.id %}
-        {% if not entry.completed %}
-            <a
-                class="quest-command-positive"
-                title="Complete"
-                href="{% url 'app-views-user-update' user.pk %}?action=complete&entry={{ entry.id }}">&checkmark;</a>
-        {% else %}
-            <a
-                class="quest-command-neutral"
-                title="Downgrade to 'Active'"
-                href="{% url 'app-views-user-update' user.pk %}?action=downgrade&entry={{ entry.id }}">&#x2299;</a>
-        {% endif %}
+    {% if not entry.completed %}
         <a
-            class="quest-command-negative"
-            title="Remove from active quests"
-            onclick="return confirm('Are you sure you want to remove this quest?')"
-            href="{% url 'app-views-user-update' user.pk %}?action=remove&entry={{ entry.id }}">&#x2298;</a>
+            class="quest-command-positive"
+            title="Complete"
+            href="{% url 'app-views-user-update' user.pk %}?action=complete&entry={{ entry.id }}">&checkmark;</a>
+    {% else %}
+        <a
+            class="quest-command-neutral"
+            title="Downgrade to 'Active'"
+            href="{% url 'app-views-user-update' user.pk %}?action=downgrade&entry={{ entry.id }}">&#x2299;</a>
     {% endif %}
+    <a
+        class="quest-command-negative"
+        title="Remove from active quests"
+        onclick="return confirm('Are you sure you want to remove this quest?')"
+        href="{% url 'app-views-user-update' user.pk %}?action=remove&entry={{ entry.id }}">&#x2298;</a>
     <label>{{ entry.quest.quest_name }}</label>
 </div>

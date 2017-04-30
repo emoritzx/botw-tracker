@@ -20,20 +20,26 @@
     <div id="{{ quest_type }}" data-quests-active="False">
         <h2>{{ quest_description }}</h2>
         <h3>Active</h3>
-        {% for entry in object.questentry_set|in_category:quest_type|completion_status:False %}
-            {% include 'user/questentry_detail.html' %}
-        {% endfor %}
+        {% if user.is_authenticated and view.get_user_id == user.id %}
+            {% include 'user/questentry_list_owner.html' with list=object.questentry_set|in_category:quest_type|completion_status:False %}
+        {% else %}
+            {% include 'user/questentry_list_anon.html' with list=object.questentry_set|in_category:quest_type|completion_status:False %}
+        {% endif %}
         <h3>Completed</h3>
-        {% for entry in object.questentry_set|in_category:quest_type|completion_status:True %}
-            {% include 'user/questentry_detail.html' %}
-        {% endfor %}
-        <h3>Undiscovered</h3>
-        <p class="quests-undiscovered-dropdown quest-command-neutral" data-quest-type="{{ quest_type }}">+</p>
-        <div class="quests-undiscovered" data-quest-type="{{ quest_type }}">
-            {% for quest in view.get_undiscovered_quests|in_category:quest_type %}
-                {% include 'user/quest_detail.html' %}
-            {% endfor %}
-        </div>
+        {% if user.is_authenticated and view.get_user_id == user.id %}
+            {% include 'user/questentry_list_owner.html' with list=object.questentry_set|in_category:quest_type|completion_status:True %}
+        {% else %}
+            {% include 'user/questentry_list_anon.html' with list=object.questentry_set|in_category:quest_type|completion_status:True %}
+        {% endif %}
+        {% if user.is_authenticated and view.get_user_id == user.id %}
+            <h3>Undiscovered</h3>
+            <p class="quests-undiscovered-dropdown quest-command-neutral" data-quest-type="{{ quest_type }}">+</p>
+            <div class="quests-undiscovered" data-quest-type="{{ quest_type }}">
+                {% for quest in view.get_undiscovered_quests|in_category:quest_type %}
+                    {% include 'user/quest_detail.html' %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {% endfor %}
 </div>
