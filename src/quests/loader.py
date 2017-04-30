@@ -1,3 +1,11 @@
+"""botw-tracker quests app database loader
+
+Copyright (c) 2017, Evan Moritz.
+
+botw-tracker is an open source software project released under the MIT License.
+See the accompanying LICENSE file for terms.
+
+"""
 from quests.models import Quest
 
 def load(fstream, quest_type):

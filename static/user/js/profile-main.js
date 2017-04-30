@@ -1,3 +1,12 @@
+/**
+ * botw-tracker user profile scripts
+ *
+ * Copyright (c) 2017, Evan Moritz.
+ * 
+ * botw-tracker is an open source software project released under the MIT License.
+ * See the accompanying LICENSE file for terms.
+ *
+ */
 requirejs.config({
     paths: {
         "jquery": "/static/lib/jquery-3.2.1.min"

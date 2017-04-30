@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 
+"""
+botw-tracker database configuration script
+
+Copyright (c) 2017, Evan Moritz.
+
+botw-tracker is an open source software project released under the MIT License.
+See the accompanying LICENSE file for terms.
+"""
+
 # import system modules
 import django
 import os
@@ -18,6 +27,9 @@ def configure_settings():
     """
     print("Creating local settings file: %s" % SETTINGS_LOCAL)
     with open(os.path.join(APP_NAME, SETTINGS_LOCAL), "w") as f:
+        f.write('"""\nWarning:\n\n'
+            '    This file should *not* be committed as part of the repository.\n'
+            '    It contains configuration settings local to this machine only.\n"""')
         for k, v in sorted(__prompt_user_settings(__get_settings_map()).items()):
             f.write("%s = %s\n" % (k, "'%s'" % v if type(v) is str else v))
 

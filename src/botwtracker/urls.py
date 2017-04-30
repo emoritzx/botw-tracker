@@ -1,7 +1,9 @@
-"""botwtracker URL Configuration
+"""botw-tracker URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.10/topics/http/urls/
+Copyright (c) 2017, Evan Moritz.
+
+botw-tracker is an open source software project released under the MIT License.
+See the accompanying LICENSE file for terms.
 
 """
 from django.conf.urls import url, include
