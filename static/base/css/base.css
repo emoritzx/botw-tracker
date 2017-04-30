@@ -19,3 +19,8 @@ section {
         width: 1024px;
     }
 }
+
+a {
+    color: red;
+    text-decoration: none;
+}
