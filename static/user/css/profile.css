@@ -70,6 +70,13 @@
     color: #0F0;
 }
 
+.quests-undiscovered-dropdown:hover,
+.quest-command-positive:hover,
+.quest-command-negative:hover,
+.quest-command-neutral:hover {
+    text-decoration: none;
+}
+
 .quest-command-positive:hover {
     background-color: #060;
 }
