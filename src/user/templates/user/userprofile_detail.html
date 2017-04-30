@@ -2,8 +2,6 @@
 {% load static %}
 {% load questentry_extras %}
 
-{% block title %}{{ object.user.username }}{% endblock %}
-
 {% block head %}
 <link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
 <script src="{% static 'lib/require.js' %}" data-main="{% static 'user/js/profile-main.js' %}"></script>
@@ -11,6 +9,7 @@
 
 {% block content %}
 
+<h2>Profile: {{ object.user.username }}</h2>
 <ul id="quests-nav">
 {% for quest_type, quest_description in view.get_quest_types %}<li onclick="location.hash='{{ quest_type }}'"><a href="#{{ quest_type }}">{{ quest_description }}</a></li>{% endfor %}
 </ul>
