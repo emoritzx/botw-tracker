@@ -11,7 +11,9 @@ See the accompanying LICENSE file for terms.
         <a
             class="quest-command-neutral"
             title="Discover"
-            href="{% url 'app-views-user-update' user.pk %}?action=discover&id={{ quest.id }}">&#x2299;</a>
+            href="{% url 'app-views-user-update' user.pk %}"
+            data-botw-action="discover"
+            data-botw-id="{{ quest.id }}">&#x2299;</a>
     {% endif %}
     <label>{{ quest.quest_name }}</label>
 </div>

@@ -51,36 +51,31 @@ class UserProfileUpdate(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         user = User.objects.get(pk=kwargs['pk'])
-        action = self.request.GET.get('action')
-        if not action:
-            raise SuspiciousOperation('No action provided')
-        elif action == 'complete':
-            entry = self.request.GET.get('entry')
-            entry_obj = self.verify_entry(user, entry)
+        action = self.request.POST.get('action')
+        id = self.request.POST.get('id')
+        if action == 'complete':
+            entry_obj = self.verify_entry(user, id)
             entry_obj.completion_date = timezone.now()
             entry_obj.save(update_fields=['completion_date'])
         elif action == 'discover':
-            id = self.request.GET.get('id')
             quest = Quest.objects.get(pk=id)
             profile = UserProfile.objects.get(user=user)
             QuestEntry.objects.create(user=profile, quest=quest)
         elif action == 'remove':
-            entry = self.request.GET.get('entry')
-            entry_obj = self.verify_entry(user, entry)
+            entry_obj = self.verify_entry(user, id)
             entry_obj.delete()
         elif action == 'downgrade':
-            entry = self.request.GET.get('entry')
-            entry_obj = self.verify_entry(user, entry)
+            entry_obj = self.verify_entry(user, id)
             entry_obj.completion_date = None
             entry_obj.save(update_fields=['completion_date'])
         else:
             raise SuspiciousOperation('Unknown action: %s' % action)
         return super().get_redirect_url(*args, slug=user.username)
 
-    def verify_entry(self, user, entry):
-        if not entry:
+    def verify_entry(self, user, id):
+        if not id:
             raise SuspiciousOperation('No entry provided')
-        entry_obj = QuestEntry.objects.get(pk=entry)
+        entry_obj = QuestEntry.objects.get(pk=id    )
         if entry_obj.user.user.id != user.id:
             raise SuspiciousOperation('Quest entry does not belong to user')
         return entry_obj

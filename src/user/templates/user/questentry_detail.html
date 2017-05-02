@@ -11,17 +11,22 @@ See the accompanying LICENSE file for terms.
         <a
             class="quest-command-positive"
             title="Complete"
-            href="{% url 'app-views-user-update' user.pk %}?action=complete&entry={{ entry.id }}">&checkmark;</a>
+            href="{% url 'app-views-user-update' user.pk %}"
+            data-botw-action="complete"
+            data-botw-id="{{ entry.id }}">&checkmark;</a>
     {% else %}
         <a
             class="quest-command-neutral"
             title="Downgrade to 'Active'"
-            href="{% url 'app-views-user-update' user.pk %}?action=downgrade&entry={{ entry.id }}">&#x2299;</a>
+            href="{% url 'app-views-user-update' user.pk %}"
+            data-botw-action="downgrade"
+            data-botw-id="{{ entry.id }}">&#x2299;</a>
     {% endif %}
     <a
         class="quest-command-negative"
         title="Remove from active quests"
-        onclick="return confirm('Are you sure you want to remove this quest?')"
-        href="{% url 'app-views-user-update' user.pk %}?action=remove&entry={{ entry.id }}">&#x2298;</a>
+        href="{% url 'app-views-user-update' user.pk %}"
+        data-botw-action="remove"
+        data-botw-id="{{ entry.id }}">&#x2298;</a>
     <label>{{ entry.quest.quest_name }}</label>
 </div>
