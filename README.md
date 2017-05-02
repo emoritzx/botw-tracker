@@ -33,11 +33,18 @@ Installation
 
    The configuration script will generate localized settings, prompting when necessary.
 
-5. (optional) Run the server locally for testing:
+5. (optional) Create admin user
+
+       $ cd src
+       $ python manage.py createsuperuser
+
+   The admin user will have their own quest profile as well.
+
+6. (optional) Run the server locally for testing:
 
        $ python manage.py runserver
 
-6. Deploy application on development server
+7. Deploy application on development server
 
    Django applications can be deployed on any server with Python/WSGI support.
 
