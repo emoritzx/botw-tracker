@@ -92,22 +92,10 @@ def configure_quests():
         with open(os.path.join(DATA_DIR, 'quests', quest_type[0] + ".dat")) as qfile:
             QuestLoader.load(qfile, quest_type[0])
 
-def configure_testuser():
-    """Load example data into database"""
-    from django.contrib.auth.models import User
-    user = User.objects.create_user(username='testuser', password='botw-tracker-testuser')
-    from quests.models import Quest
-    from user.models import QuestEntry
-    import datetime
-    quest=Quest.objects.all()[0]
-    print(quest)
-    QuestEntry(user=user.userprofile, quest=quest).save()
-
 # run configuration
 if __name__ == "__main__":
     configure_settings()
     django.setup()
     configure_migrations()
     configure_quests()
-    configure_testuser()
     print("Configuration completed successfully.")
