@@ -29,7 +29,7 @@ def configure_settings():
     with open(os.path.join(APP_NAME, SETTINGS_LOCAL), "w") as f:
         f.write('"""\nWarning:\n\n'
             '    This file should *not* be committed as part of the repository.\n'
-            '    It contains configuration settings local to this machine only.\n"""')
+            '    It contains configuration settings local to this machine only.\n"""\n')
         for k, v in sorted(__prompt_user_settings(__get_settings_map()).items()):
             f.write("%s = %s\n" % (k, "'%s'" % v if type(v) is str else v))
 
