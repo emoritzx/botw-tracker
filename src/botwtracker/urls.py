@@ -10,6 +10,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.shortcuts import render
+from .config_local import USE_SIGNUP
 
 def index(request):
     return render(request, 'index.html')
@@ -22,3 +23,6 @@ urlpatterns = [
     url(r'^quests/', include('quests.urls')),
     url(r'^user/', include('user.urls')),
 ]
+
+if USE_SIGNUP:
+    urlpatterns.append(url(r'^signup/', include('signup.urls')))

@@ -46,6 +46,8 @@ See the accompanying LICENSE file for terms.
                         <a href="{% url 'logout' %}?next={{ request.path }}">Log out</a>
                     {% else %}
                         <a href="{% url 'login' %}?next={{ request.path }}">Log in</a>
+                        </li><li>
+                        <a href="{% url 'app-views-signup' %}">Sign up</a>
                     {% endif %}
                 </li>
             </ul>

@@ -1,0 +1,17 @@
+{% comment %}
+
+Copyright (c) 2016 Simple is Better Than Complex
+Released under MIT license, https://github.com/sibtc/simple-signup/blob/master/LICENSE
+
+Modified:
+  - use application configuration
+  - use server protocol
+
+{% endcomment %}
+{% autoescape off %}
+Hi {{ user.username }},
+
+Please click on the link below to confirm your registration:
+
+{{ protocol }}://{{ domain }}{% url 'app-views-signup-activate' uidb64=uid token=token %}
+{% endautoescape %}

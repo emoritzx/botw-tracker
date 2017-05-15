@@ -7,7 +7,7 @@ See the accompanying LICENSE file for terms.
 
 """
 import os
-from botwtracker.config_local import *
+from .config_local import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -16,15 +16,18 @@ DATA_DIR = os.path.join(BASE_DIR, '..', 'data')
 # Application definition
 
 INSTALLED_APPS = [
-    'quests.apps.QuestsConfig',
-    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'quests.apps.QuestsConfig',
+    'user.apps.UserConfig',
 ]
+
+if USE_SIGNUP:
+    INSTALLED_APPS.append('signup.apps.SignupConfig')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -41,7 +41,8 @@ def __get_settings_map():
         DEBUG:          False
         LANGUAGE_CODE:  'en-us'
         SECRET_KEY:     <randomly generated key>
-        TIME_ZONE:  
+        TIME_ZONE:      <django default>
+        USE_SIGNUP:     False
     
     Note:
         The secret key is generated in the same manner as the command `django-admin startapp`.
@@ -55,6 +56,7 @@ def __get_settings_map():
         'LANGUAGE_CODE': 'en-us',
         'SECRET_KEY': get_random_secret_key(),
         'TIME_ZONE': TIME_ZONE,
+        'USE_SIGNUP': False,
     }
 
 def __prompt_user_settings(settings):
@@ -66,6 +68,8 @@ def __prompt_user_settings(settings):
         settings['ALLOWED_HOSTS'].append(host)
     __prompt_user_default(settings, 'TIME_ZONE')
     __prompt_user_default(settings, 'LANGUAGE_CODE')
+    if input("Use simple-signup app for user registration? [y/n] ") == 'y':
+        settings['USE_SIGNUP'] = True
     return settings
 
 def __prompt_user_default(settings, key):

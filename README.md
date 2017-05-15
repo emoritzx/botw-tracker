@@ -26,25 +26,30 @@ Installation
 
    By default, the project will use a sqlite3 instance in `data/sqlite3.db`.
 
-4. After cloning the project, run the configuration command:
+4. (optional) If using the simple-signup app, update your email backend.
+
+       # settings.py
+       EMAIL_BACKEND = '...'
+
+5. After cloning the project, run the configuration command:
 
        $ cd src
        $ python configure.py
 
    The configuration script will generate localized settings, prompting when necessary.
 
-5. (optional) Create admin user
+6. (optional) Create admin user:
 
        $ cd src
        $ python manage.py createsuperuser
 
    The admin user will have their own quest profile as well.
 
-6. (optional) Run the server locally for testing:
+7. (optional) Run the server locally for testing:
 
        $ python manage.py runserver
 
-7. Deploy application on development server
+8. Deploy application on development server.
 
    Django applications can be deployed on any server with Python/WSGI support.
 
@@ -68,6 +73,10 @@ This project includes the following open source libraries:
   - RequireJS 2.3.3
     Copyright jQuery Foundation and other contributors.
     Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
+
+  - simple-signup
+    Copyright (c) 2016 Simple is Better Than Complex
+    Released under MIT license, https://github.com/sibtc/simple-signup/blob/master/LICENSE
 
 References
 ----------
