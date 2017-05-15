@@ -98,8 +98,11 @@ def configure_quests():
 
 # run configuration
 if __name__ == "__main__":
-    configure_settings()
-    django.setup()
-    configure_migrations()
-    configure_quests()
-    print("Configuration completed successfully.")
+    try:
+        configure_settings()
+        django.setup()
+        configure_migrations()
+        configure_quests()
+        print("Configuration completed successfully.")
+    except Exception as e:
+        print(e)
