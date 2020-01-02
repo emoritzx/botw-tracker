@@ -17,7 +17,7 @@ Installation
 1. Make sure the following software is installed on the target machine:
 
    - Python 3
-   - Django
+   - Django (1.11.11 recommended)
    - (optional) sqlite3
 
 2. Download the project from GitHub.
